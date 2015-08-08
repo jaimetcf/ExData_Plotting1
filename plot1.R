@@ -8,7 +8,7 @@ dset <- read.table("household_power_consumption.txt",
 dhpc <- subset(dset, (Date=="1/2/2007") | 
                      (Date=="2/2/2007")   );
 
-rm(dset);
+rm(dset);  # Releases memory used by dset
 
 # Converts column Global_active_power to numeric
 dhpc[,3] <- as.numeric(dhpc[,3]);
