@@ -8,7 +8,7 @@ dset <- read.table("household_power_consumption.txt",
 dhpc <- subset(dset, (Date=="1/2/2007") | 
                      (Date=="2/2/2007")   );
 
-rm(dset);
+rm(dset); # Frees memory that won´t be used anymore
 
 # Converts column Global_active_power to numeric
 dhpc[,3] <- as.numeric(dhpc[,3]);
@@ -40,8 +40,8 @@ par(mfrow=c(2,2));
 plot(dhpc$Global_active_power, 
      type="l",
      col="black", 
-     xaxt="n",
-     xlab="",
+     xaxt="n",      # Removes default x axis scale
+     xlab="",       # Removes default x labels
      ylab="Global Active Power",
      main="");
 
@@ -56,7 +56,7 @@ axis(side = 1,                        # Axis labels below chart
 plot(dhpc$Voltage, 
      type="l",
      col="black", 
-     xaxt="n",
+     xaxt="n",        # Removes default x axis scale
      xlab="datetime",
      ylab="Voltage",
      main="");
@@ -72,30 +72,30 @@ axis(side = 1,                        # Axis labels below chart
 plot(dhpc$Sub_metering_1,
      type="l",
      col="black",
-     xaxt="n", 
-     ylim=r,
-     xlab="",
-     ylab="",
+     xaxt="n",       # Removes default x axis scale
+     ylim=r,         # Sets y range equal to r
+     xlab="",        # No default x labels
+     ylab="",        # No default y labels
      main="");
 
-par(new=TRUE)
+par(new=TRUE)        # Keep ploting in the same chart
 plot(dhpc$Sub_metering_2,
      type="l",
      col="red",
-     xaxt="n", 
-     ylim=r,
-     xlab="",
-     ylab="",
+     xaxt="n",       # Removes default x axis scale
+     ylim=r,         # Sets y range equal to r
+     xlab="",        # No default x labels
+     ylab="",        # No default y labels
      main="");
 
 par(new=TRUE)
 plot(dhpc$Sub_metering_3,
      type="l",
      col="blue",
-     xaxt="n", 
-     ylim=r,
-     xlab="",
-     ylab="Energy sub metering",
+     xaxt="n",       # Removes default x axis scale
+     ylim=r,         # Sets y range equal to r
+     xlab="",        # No default x labels
+     ylab="Energy sub metering", # Sets y label
      main="");
 
 # Prints x axis scale
@@ -121,7 +121,7 @@ legend("topright",                   # Legend position
 plot(dhpc$Global_reactive_power, 
      type="l",
      col="black", 
-     xaxt="n",
+     xaxt="n",         # No default x axis scale
      xlab="datetime",
      ylab="Global Reactive Power",
      main="");
